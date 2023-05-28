@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import wait from 'waait';
 import CartCount from '../components/CartCount';
 
@@ -11,7 +11,7 @@ describe('<CartCount/>', () => {
     expect(container).toMatchSnapshot();
   });
   it('updates via props', async () => {
-    const { container, rerender, debug } = render(<CartCount count={11} />);
+    const { container, rerender } = render(<CartCount count={11} />);
     expect(container.textContent).toBe('11');
     // expect(container).toHaveTextContent('11');
     // Update the props

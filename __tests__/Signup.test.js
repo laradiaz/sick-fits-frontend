@@ -1,9 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { MockedProvider } from '@apollo/react-testing';
 import userEvent from '@testing-library/user-event';
-import wait from 'waait';
 import Signup, { SIGNUP_MUTATION } from '../components/SignUp';
-import { CURRENT_USER_QUERY } from '../components/User';
 import { fakeUser } from '../lib/testUtils';
 
 const me = fakeUser();
@@ -30,11 +28,6 @@ const mocks = [
       },
     },
   },
-  // Current user mock
-  // {
-  //   request: { query: CURRENT_USER_QUERY },
-  //   result: { data: { authenticatedItem: me } },
-  // },
 ];
 
 describe('<SignUp/>', () => {

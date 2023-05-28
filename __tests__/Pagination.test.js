@@ -13,7 +13,7 @@ describe('<Pagination/>', () => {
     expect(container).toHaveTextContent('Loading...');
   });
   it('renders pagination for 18 items', async () => {
-    const { container, debug } = render(
+    const { container } = render(
       <MockedProvider mocks={makePaginationMocksFor(18)}>
         <Pagination page={1} />
       </MockedProvider>

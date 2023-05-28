@@ -6,7 +6,7 @@ import wait from 'waait';
 import CreateProduct, {
   CREATE_PRODUCT_MUTATION,
 } from '../components/CreateProduct';
-import { fakeItem, makePaginationMocksFor } from '../lib/testUtils';
+import { fakeItem } from '../lib/testUtils';
 import { ALL_PRODUCTS_QUERY } from '../components/Products';
 
 const item = fakeItem();
@@ -17,7 +17,7 @@ jest.mock('next/router', () => ({
 
 describe('<CreateProduct/>', () => {
   it('renders and matches snapshot', () => {
-    const { container, debug } = render(
+    const { container } = render(
       <MockedProvider>
         <CreateProduct />
       </MockedProvider>
@@ -32,12 +32,12 @@ describe('<CreateProduct/>', () => {
       </MockedProvider>
     );
     // 2. type into the boxes
-    await userEvent.type(screen.getByPlaceholderText(/Name/i), item.name);
-    await userEvent.type(
+    userEvent.type(screen.getByPlaceholderText(/Name/i), item.name);
+    userEvent.type(
       screen.getByPlaceholderText(/Price/i),
       item.price.toString()
     );
-    await userEvent.type(
+    userEvent.type(
       screen.getByPlaceholderText(/Description/i),
       item.description
     );
@@ -90,17 +90,17 @@ describe('<CreateProduct/>', () => {
     );
     // Type into the inputs
     // 2. type into the boxes
-    await userEvent.type(screen.getByPlaceholderText(/Name/i), item.name);
-    await userEvent.type(
+    userEvent.type(screen.getByPlaceholderText(/Name/i), item.name);
+    userEvent.type(
       screen.getByPlaceholderText(/Price/i),
       item.price.toString()
     );
-    await userEvent.type(
+    userEvent.type(
       screen.getByPlaceholderText(/Description/i),
       item.description
     );
     // Submit it and see if the page change has been called
-    await userEvent.click(screen.getByText(/Add Product/));
+    userEvent.click(screen.getByText(/Add Product/));
     await waitFor(() => wait(0));
     expect(Router.push).toHaveBeenCalled();
     expect(Router.push).toHaveBeenCalledWith({ pathname: '/product/abc123' });

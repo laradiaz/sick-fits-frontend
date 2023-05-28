@@ -20,7 +20,7 @@ describe('<Product/>', () => {
   });
 
   it('Renders and matches the snapshot', () => {
-    const { container, debug } = render(
+    const { container } = render(
       <MockedProvider>
         <Product product={product} />
       </MockedProvider>

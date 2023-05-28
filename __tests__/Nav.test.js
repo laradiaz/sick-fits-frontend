@@ -35,7 +35,7 @@ const signedInMocksWithCartItems = [
 
 describe('<Nav/>', () => {
   it('Renders and minimal nav when signed out', () => {
-    const { container, debug } = render(
+    const { container } = render(
       <CartStateProvider>
         <MockedProvider mocks={notSignedInMocks}>
           <Nav />
@@ -52,7 +52,7 @@ describe('<Nav/>', () => {
   });
 
   it('renders a full nav when signed in', async () => {
-    const { container, debug } = render(
+    const { container } = render(
       <CartStateProvider>
         <MockedProvider mocks={signedInMocks}>
           <Nav />

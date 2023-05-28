@@ -26,7 +26,7 @@ const mocks = [
 describe('<Single Product/>', () => {
   it('renders with proper data', async () => {
     // We need to make some fake data
-    const { container, debug } = render(
+    const { container } = render(
       <MockedProvider mocks={mocks}>
         <SingleProduct id="123" />
       </MockedProvider>
